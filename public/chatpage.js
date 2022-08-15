@@ -5,6 +5,10 @@ let { username } = Qs.parse(location.search,{
     ignoreQueryPrefix: true
 })
 
+if(username === ''){
+    window.location.replace('/')
+}
+
 socket.emit('joinChannel',username)
 
 socket.on('message', message => {
@@ -26,7 +30,9 @@ form.on('submit', (event) => {
     const message = {
         content: document.querySelector('input').value,
     }
-    socket.emit('chatmessage',message)
+    if(!(message.content === '')){
+        socket.emit('chatmessage',message)
+    }
     document.querySelector('input').value = "";
     document.querySelector('input').focus();
 })
