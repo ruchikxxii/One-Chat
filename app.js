@@ -14,6 +14,10 @@ const io = socketio(server)
 
 app.use(express.static('./public'))
 
+app.get('/',(req,res) => {
+    res.sendFile('./public/index.html')
+})
+
 io.on('connection', (socket) => {
 
     socket.on('joinChannel',username => {
