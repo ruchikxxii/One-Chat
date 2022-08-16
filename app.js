@@ -40,7 +40,7 @@ io.on('connection', (socket) => {
     })    
 })
 
-server.listen(process.env.PORT,()=>console.log(`Sever running on port ${PORT}`))
+server.listen(PORT,()=>console.log(`Sever running on port ${PORT}`))
 
 const formatMessage = (username,content) => {
     return ({
