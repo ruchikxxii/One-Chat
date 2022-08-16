@@ -46,6 +46,6 @@ const formatMessage = (username,content) => {
     return ({
         username: username,
         content: content,
-        time: moment().format('h:mm a')
+        time: moment().utcOffset("+5:30").format('h:mm a')
     });
 }
